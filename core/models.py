@@ -5,18 +5,11 @@ from sqlalchemy import DateTime, Column
 from sqlalchemy.sql import func
 
 
+
+
 class BaseModel(SQLModel, Table=False):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
-
-    def save(self):
-        raise NotImplementedError
-
-    def create(self, **data):
-        raise NotImplementedError
-
-    def hard_delete(self, pk):
-        raise NotImplementedError
-
+    
 
 class BaseDateTime(SQLModel, Table=False):
     created_at: datetime | None = Field(

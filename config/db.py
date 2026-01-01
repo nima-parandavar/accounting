@@ -24,5 +24,5 @@ async def get_session() -> AsyncSession:
     async with AsyncSessionLocal() as session:
         yield session
 
-
+session = get_session()
 SessionType = Annotated[AsyncSession, Depends(get_session)]

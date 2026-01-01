@@ -6,14 +6,17 @@ class Settings(BaseSettings):
     db_url: str
     phone_number_region_code: str = "+98"
     secret_key: str
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int
+    algorithm: str = "HS256"
+    access_token_expire_minutes: int
+    schemas: list[str] = ["sha256_crypt"]
 
+    # load env file
     model_config = SettingsConfigDict(env_file=".env")
 
 
 class FastApiSettings(BaseSettings):
-    pass
+    title: str = "Accounting application"
+    version: str = "0.0.0"
 
 
 app_settings = Settings()
