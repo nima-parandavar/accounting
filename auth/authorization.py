@@ -6,7 +6,7 @@ ouath_schem = OAuth2PasswordBearer(
     tokenUrl="token",
     refreshUrl="refresh",
     scheme_name="login",
-    description="Autenticate user by email and password",
+    description="Autenticate user by email and password",   
 )
 
 

@@ -43,6 +43,14 @@ class User(BaseModel, table=True):
             phone_number = f"{app_settings.phone_number_region_code}{phone_number[1:]}"
 
         return phone_number
+
+    @property
+    def make_password(self):
+        pass
+
+    @property
+    def verify_password(self):
+        pass
     
     @validates("phone_number")
     def _normalize_phone(self, key, value):

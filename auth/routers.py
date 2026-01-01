@@ -1,9 +1,11 @@
 from fastapi import APIRouter
-from .authorization import AuthFormType, AuthType
+from config.db import SessionType
+from .authorization import AuthFormType
 
 router = APIRouter()
 
 
 @router.post("/token")
-async def login(token: AuthType, form: AuthFormType):
+async def login(form: AuthFormType, session: SessionType):
+    
     return  

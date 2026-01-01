@@ -7,9 +7,7 @@ from auth.routers import router as auth_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await init_db()
     yield
-    print("Shutdown **")
 
 
 app = FastAPI(
@@ -20,4 +18,4 @@ app = FastAPI(
 
 
 # routes
-app.include_router(auth_router, prefix="/auth", tags=["auth"])
+app.include_router(auth_router, prefix="/auth", tags=["Auth"])
