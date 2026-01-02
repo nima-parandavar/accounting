@@ -13,7 +13,6 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     **fast_api_settings.model_dump(),
     debug=app_settings.debug,
-    lifespan=lifespan,
 )
 
 
