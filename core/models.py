@@ -1,40 +1,39 @@
 import uuid
 from datetime import datetime
 from sqlmodel import SQLModel, Field
-from sqlalchemy import DateTime, Column
 from sqlalchemy.sql import func
 
 
 
 
-class BaseModel(SQLModel, Table=False):
+class BaseModel(SQLModel, table=False):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     
 
-class BaseDateTime(SQLModel, Table=False):
+class BaseDateTime(SQLModel, table=False):
+
     created_at: datetime | None = Field(
-        sa_column=Column(
-            DateTime(timezone=True),
-            server_default=func.now(),
-            nullable=True,
-        ),
+        default=None,
+        sa_column_kwargs={
+            "server_default": func.now(),
+            "nullable":True,
+        },
     )
     updated_at: datetime | None = Field(
-        sa_column=Column(
-            DateTime(timezone=True),
-            server_default=func.now(),
-            server_onupdate=func.now(),
-            nullable=True,
-        ),
+        default=None,
+        sa_column_kwargs={
+            "server_default": func.now(),
+            "server_onupdate":func.now(),
+            "nullable":True,
+        }
     )
 
 
-class BaseSoftDelete(SQLModel, Table=False):
+class BaseSoftDelete(SQLModel, table=False):
+
     deleted_at: datetime | None = Field(
-        sa_column=Column(
-            DateTime(timezone=True),
-            nullable=True,
-        ),
+        default=None,
+        sa_column_kwargs={"nullable":True,},
     )
 
     def is_deleted(self):

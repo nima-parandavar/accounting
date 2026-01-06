@@ -5,7 +5,11 @@ from sqlalchemy.ext.asyncio import async_sessionmaker
 from .settings import app_settings
 from sqlmodel import SQLModel
 from fastapi import Depends
+
+# import models
 from auth.models import User
+from finance.models import CreditCard, POSDevice
+
 
 engine = create_async_engine(app_settings.db_url, echo=app_settings.debug)
 AsyncSessionLocal = async_sessionmaker(

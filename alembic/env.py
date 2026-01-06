@@ -11,6 +11,7 @@ from alembic import context
 
 from sqlmodel import SQLModel
 from auth.models import User
+from finance.models import CreditCard, POSDevice
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
