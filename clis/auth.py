@@ -33,6 +33,7 @@ def create_admin(
             await session.commit()
             await session.refresh(user)
         rprint("[green]Admin user created successfully[/green]")
+        Exit()
 
     asyncio.run(run_())
-    Exit()
+    

@@ -9,6 +9,7 @@ from fastapi import Depends
 # import models
 from auth.models import User
 from finance.models import CreditCard, POSDevice
+from purchase.models import Unit, Price, Product, Item, Purchase
 
 
 engine = create_async_engine(app_settings.db_url, echo=app_settings.debug)

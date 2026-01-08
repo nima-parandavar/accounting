@@ -20,6 +20,7 @@ class CreditCard(BaseModel, BaseDateTime, BaseSoftDelete, table=True):
 
     # fks
     pos_device: list["POSDevice"] = Relationship(back_populates="credit_card")
+    purchases: list["Purchase"] = Relationship(back_populates="credit_card")
 
     @validates("card_number")
     def validate_card_number(self, key, value: str):

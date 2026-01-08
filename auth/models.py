@@ -38,8 +38,8 @@ class User(BaseModel, table=True):
     )
 
     # fks
-    credit_cards: list["CreditCard"] = Relationship(back_populates="user")
-    pos_devices: list["POSDevice"] = Relationship(back_populates="user")
+    credit_cards: list["CreditCard"] | None = Relationship(back_populates="user")
+    pos_devices: list["POSDevice"] | None = Relationship(back_populates="user")
 
 
     def make_password(self, password: str):

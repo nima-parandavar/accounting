@@ -10,8 +10,10 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from alembic import context
 
 from sqlmodel import SQLModel
+# add models here
 from auth.models import User
 from finance.models import CreditCard, POSDevice
+from purchase.models import Unit, Price, Product, Item, Purchase
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
